@@ -1,32 +1,24 @@
-# Deploy Roots Bedrock WordPress project to WP Engine hosting platform
+# Deploy composer based WordPress project to WP Engine hosting platform
 
-Works up to Bedrock 1.7.2
-
-Repo: [https://github.com/hello-jason/bedrock-deploy-to-wpengine](https://github.com/hello-jason/bedrock-deploy-to-wpengine)
+Repo: [https://github.com/wherebyus/deploy-to-wpengine](https://github.com/wherebyus/deploy-to-wpengine)
 
 ## Changelog
 
-v2 - Removes build process for Sage theme. Now focuses purely on deploying your Bedrock project, regardless of theme.
-v1 - Works up to Bedrock 1.7.2, Sage 8.5
+v1 - New version, forked off of hello-jason's original script about Bedrock.
 
 ## Description
 
-This bash script prepares a WordPress project built on Root's [Bedrock](https://roots.io/bedrock/) boilerplate and deploys it **to the WP Engine hosting platform**.
+This bash script prepares a WordPress project built on a composer project and deploys it **to the WP Engine hosting platform**.
 
 WP Engine expects to see a standard WordPress project in the document root for your account. Since Bedrock shifts folders and files around a bit, this script temporarily moves everything back to their original locations (on a safe, temporary branch), which is then pushed to WP Engine.
 
-The result is a properly-versioned Bedrock repo that you can safely and repeatedly deploy to WP Engine's production and staging environments.
-
-Demo:
-
-* Demo Bedrock site on WP Engine: [http://rootsbedrock.wpengine.com/](http://rootsbedrock.wpengine.com/)
-* Demo Bedrock site repo: [https://github.com/hello-jason/bedrock-on-wpengine-demo](https://github.com/hello-jason/bedrock-on-wpengine-demo)
+The result is a properly-versioned repo that you can safely and repeatedly deploy to WP Engine's production and staging environments.
 
 ## Installation &amp; Setup
 
 ### 1. Grab the script
 
-Source code is available at [https://github.com/hello-jason/bedrock-deploy-to-wpengine](https://github.com/hello-jason/bedrock-deploy-to-wpengine). This repo is not meant to be cloned into your project. Rather, just grab the `wpedeploy.sh` file and place it in the top-level directory of your Bedrock project, and keep it with your project's repo.
+Source code is available at [https://github.com/wherebyus/deploy-to-wpengine](https://github.com/wherebyus/deploy-to-wpengine). This repo is not meant to be cloned into your project. Rather, just grab the `wpedeploy.sh` file and place it in the top-level directory of your Bedrock project, and keep it with your project's repo.
 
 ### 2. Setup git push
 
