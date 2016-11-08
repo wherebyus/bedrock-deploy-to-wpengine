@@ -1,26 +1,15 @@
 #!/bin/bash
-# Version: 2.1
-# Last Update: October 15, 2016
+# Version: 1.0.1
+# Last Update: November 8, 2016
 #
-# Description: Bash script to deploy a Bedrock WordPress project to WP Engine's hosting platform
-# Repository: https://github.com/hello-jason/bedrock-deploy-to-wpengine.git
-# README: https://github.com/hello-jason/bedrock-deploy-to-wpengine/blob/master/README.md
+# Description: Bash script to deploy a WordPress project to WP Engine's hosting platform
+# Repository: https://github.com/wherebyus/deploy-to-wpengine/
 #
-# Tested Bedrock Version: 1.7.2
-# Tested bash version: 4.3.42
-# Author: Jason Cross
-# Author URL: http://hellojason.net/
+# Author: Ernie Hsiung, adapted from Jason Cross
 ########################################
 # Usage
 ########################################
 # bash wpedeploy.sh nameOfRemote
-
-########################################
-# Thanks
-########################################
-# Thanks to [schrapel](https://github.com/schrapel/wpengine-bedrock-build) for
-# providing some of the foundation for this script.
-# Also thanks to [cmckni3](https://github.com/cmckni3) for guidance and troubleshooting
 
 ########################################
 # Set variables
@@ -72,10 +61,6 @@ function deploy () {
 
   # Run composer
   composer install
-  # Setup directory structure
-  mkdir wp-content && mkdir wp-content/themes && mkdir wp-content/plugins
-  # Copy meaningful contents of web/app into wp-content
-  cp -rp web/app/plugins wp-content && cp -rp web/app/themes wp-content
 
   ########################################
   # Push to WP Engine
@@ -99,7 +84,6 @@ function deploy () {
   # Back to a clean slate
   ########################################
   git checkout "$currentLocalGitBranch" &> /dev/null
-  rm -rf wp-content/ &> /dev/null
   git branch -D "$tempDeployGitBranch" &> /dev/null
   echo -e "[\033[32mDone\e[0m] Deployed \"$tempDeployGitBranch\" to \"$wpengineRemoteName\""
 }
